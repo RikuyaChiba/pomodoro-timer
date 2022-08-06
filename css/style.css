@@ -86,6 +86,18 @@ main {
     background-color: var(--color-thin-danger);
 }
 
+
+/* ====================== NAVBAR ===================== */
+nav {
+    height: 4rem;
+}
+
+.nav__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 /* ====================== TIMER ===================== */
 
 
