@@ -12,6 +12,7 @@
     --color-success: #00bf8e;
     --color-warning: #f7c94b;
     --color-danger: #f75842;
+    --color-thin-danger: hsl(7, 91%, 65%);
     --color-danger-variant: hsl(358, 100%, 18%);
     --color-white: #fff;
     --color-light: hsl(0, 0%, 75%);
@@ -79,6 +80,10 @@ main {
     font-size: 1.7rem;
     color: var(--color-white);
     border-radius: 0.5rem;
+}
+
+.btn:hover {
+    background-color: var(--color-thin-danger);
 }
 
 /* ====================== TIMER ===================== */
