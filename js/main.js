@@ -1,8 +1,10 @@
-let remain_time = 5;
+const setting_time = 5;
+let remain_time = setting_time;
 
 let count_number = document.getElementById('count-number');
 let start_button = document.getElementById('start-button');
 let stop_button = document.getElementById('stop-button');
+let reset_button = document.getElementById('reset-button');
 
 // set the timer value
 count_number.innerHTML = remain_time;
@@ -26,6 +28,12 @@ start_button.addEventListener('click', () => {
         stopTimer();
     });
 })
+
+// reset the timer
+reset_button.addEventListener('click', () => {
+    stopTimer();
+    count_number.innerHTML = setting_time;
+});
 
 function isTimeZero() {
     remain_time === 0 ? true : false;
