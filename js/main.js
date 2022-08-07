@@ -23,28 +23,25 @@ start_button.addEventListener('click', () => {
         }
     }, 1000);
 
-    // stop the timer
-    stop_button.addEventListener('click', () => {
-        stopTimer();
-    });
-})
+});
 
 // reset the timer
 reset_button.addEventListener('click', () => {
     stopTimer();
-    count_number.innerHTML = setting_time;
+    remain_time = setting_time;
+    count_number.innerHTML = remain_time;
 });
 
-function isTimeZero() {
-    remain_time === 0 ? true : false;
-}
+// stop the timer;
+stop_button.addEventListener('click', () => {
+    stopTimer();
+});
 
 // count down timer
 function countDown() {
     remain_time--;
     count_number.innerHTML = remain_time;
 }
-
 
 // stop the timer
 function stopTimer() {
