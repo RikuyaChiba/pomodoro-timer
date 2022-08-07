@@ -115,4 +115,15 @@ nav {
     font-size: 8rem;
 }
 
+.finish-notion {
+    font-size: 2rem;
+}
+
+.hide {
+    display: none;
+}
+
+.buttons {
+    margin-top: 1.5rem;
+}
 
