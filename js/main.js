@@ -15,7 +15,7 @@ let sec = document.getElementById('js-seconds');
 // start the timer
 main_button.addEventListener('click', () => {
     const { action } = main_button.dataset;
-    
+
     if (action === 'start') {
         startTimer();
     } else {
@@ -88,7 +88,7 @@ function updateClock() {
     min.textContent = minutes;
     sec.textContent = seconds;
 
-    const text = 
+    const text =
         timer.mode === "pomodoro" ? 'Get back to work' : 'Take a break!';
     document.title = `${minutes}:${seconds} - ${text}`;
 
@@ -127,5 +127,15 @@ function switchMode(mode) {
 
 document.addEventListener('DOMContentLoaded', () => {
     switchMode("pomodoro");
-});
+})
 
+const mode_buttons = document.getElementById('js-mode-buttons');
+mode_buttons.addEventListener('click', handleClickMode);
+
+function handleClickMode(event) {
+    const { mode } = event.target.dataset;
+
+    if (!mode) return;
+
+    switchMode(mode);
+}
