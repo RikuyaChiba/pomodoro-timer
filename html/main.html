@@ -10,7 +10,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <title>Pomodoro Timer</title>
 </head>
@@ -25,22 +26,29 @@
     <main>
         <div class="container timer__container">
             <div class="timer">
-                <div class="timer__count">
-                    <p id="count-number"></p>
+                <div class="button-groups mode-buttons" id="js-mode-buttons">
+                    <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">
+                        Pomodoro
+                    </button>
+                    <button data-mode="shortBreak" class="button mode-button" id="js-pomodoro">
+                        Short Break
+                    </button>
+                    <button data-mode="longBreak" class="button mode-button" id="js-pomodoro">
+                        Long Break
+                    </button>
                 </div>
-                <p id='finish-notion' class="finish-notion hide">Break 5 min!</p>
-                <div class="buttons">
-                    <button id="start-button" class="btn">
-                        start
-                    </button>
-                    <button id="reset-button" class="btn">
-                        reset
-                    </button>
-                    <button id="stop-button" class="btn">
-                        stop
+                <div class="clock" id="js-clock">
+                    <span id="js-minutes">25</span>
+                    <span class="separator">:</span>
+                    <span id="js-seconds">00</span>
+                </div>
+                <div>
+                    <button id="main-button" class="main-button btn" data-action="start">
+                        Start
                     </button>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 
