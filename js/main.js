@@ -1,99 +1,131 @@
-// Pomodoro work time
-const work_time = 25;
+const timer = {
+    pomodoro: 25,
+    shortBreak: 5,
+    longBreak: 15,
+    longBreakInterval: 4,
+    sessions: 0
+}
 
-// Pomodoro break time
-const break_time = 5;
+let interval;  // variable for setInterval id
+const main_button = document.getElementById('main-button');
+let min = document.getElementById('js-minutes');
+let sec = document.getElementById('js-seconds');
 
-let minutes = work_time;
-
-let seconds = 60;
-
-let remain_time = work_time;
-
-let count_number = document.getElementById('count-number');
-let start_button = document.getElementById('start-button');
-let stop_button = document.getElementById('stop-button');
-let reset_button = document.getElementById('reset-button');
-let finish_notion = document.getElementById('finish-notion')
-
-// variable for setInterval id
-let interval;
-
-// minutes format 
-let minutes_format;
-
-// seconds format
-let seconds_format;
-
-// init timer 
-count_number.innerHTML = `${minutes}:00`;
 
 // start the timer
-start_button.addEventListener('click', () => {
+main_button.addEventListener('click', () => {
+    const { action } = main_button.dataset;
+    
+    if (action === 'start') {
+        startTimer();
+    } else {
+        stopTimer();
+    }
+});
 
-    minutes--;
+function getRemainingTime(end_time) {
+    const current_time = Date.parse(new Date()); // UTC time
+    const difference = end_time - current_time;
+
+    const total = Number.parseInt(difference / 1000, 10);
+    const minutes = Number.parseInt((total / 60) % 60, 10);
+    const seconds = Number.parseInt(total % 60, 10);
+
+    return {
+        total,
+        minutes,
+        seconds
+    }
+}
+
+// start the timer
+function startTimer() {
+    let { total } = timer.remainingTime;
+    const end_time = Date.parse(new Date()) + total * 1000; // milliseconds
+
+    if (timer.mode === "pomodoro") timer.sessions++;
+
+    main_button.dataset.action = "stop";
+    main_button.textContent = "Stop";
+    main_button.classList.add("active");
 
     // count down per second
     interval = setInterval(() => {
+        timer.remainingTime = getRemainingTime(end_time);
 
-        countDown();
+        updateClock();
+
+        total = timer.remainingTime.total;
 
         // stop timer if timer is end
-        if (isTimeEnd()) {
-            stopTimer();
-            finish_notion.classList.remove('hide');
+        if (total <= 0) {
+            clearInterval(interval);
+
+            switch (timer.mode) {
+                case "pomodoro":
+                    if (timer.sessions % timer.longBreakInterval === 0) {
+                        switchMode('longBreak');
+                    } else {
+                        switchMode('shortBreak');
+                    }
+                    break;
+                default:
+                    switchMode('pomodoro');
+            }
+
+            startTimer();
         }
     }, 1000);
+}
 
-});
 
-// reset the timer
-reset_button.addEventListener('click', () => {
-    stopTimer();
-    remain_time = setting_time;
-    count_number.innerHTML = remain_time;
-});
+function updateClock() {
+    const { remainingTime } = timer;
 
-// stop the timer;
-stop_button.addEventListener('click', () => {
-    stopTimer();
-});
+    const minutes = `${remainingTime.minutes}`.padStart(2, "0");
+    const seconds = `${remainingTime.seconds}`.padStart(2, "0");
 
-// count down timer
-function countDown() {
-    if (seconds === 0) {
-        minutes--;
-        seconds = 60;
-    }
+    min.textContent = minutes;
+    sec.textContent = seconds;
 
-    seconds--;
+    const text = 
+        timer.mode === "pomodoro" ? 'Get back to work' : 'Take a break!';
+    document.title = `${minutes}:${seconds} - ${text}`;
 
-    minutes_format = formatTime(minutes);
-    seconds_format = formatTime(seconds);
-
-    timer_format = `${minutes_format}:${seconds_format}`;
-
-    count_number.innerHTML = timer_format;
 }
 
 // stop the timer
 function stopTimer() {
     clearInterval(interval);
+
+    main_button.dataset.action = 'start';
+    main_button.textContent = 'Start';
+    main_button.classList.remove('active');
 }
 
-// get number Digits
-function getNumberDigits(seconds) {
-    return String(seconds).length;
-}
-
-// judge if timer is end
-function isTimeEnd() {
-    if (minutes === 0 && seconds === 0) {
-        return true;
+function switchMode(mode) {
+    if (interval) {
+        stopTimer();
     }
-    return false;
+
+    timer.mode = mode;
+
+    timer.remainingTime = {
+        total: timer[mode] * 60, // 25*60, 5*60, 15*60
+        minutes: timer[mode], // 25, 5, 15
+        seconds: 0 // always 0
+    }
+
+    document
+        .querySelectorAll('button[data-mode]')
+        .forEach((e) => e.classList.remove('active'));
+    document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+    document.body.style.backgroundColor = `var(--${mode})`;
+
+    updateClock();
 }
 
-function formatTime(time) {
-    return getNumberDigits(time) === 1 ? `0${time}` : time;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    switchMode("pomodoro");
+});
+
