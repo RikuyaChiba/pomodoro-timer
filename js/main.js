@@ -127,5 +127,5 @@ function switchMode(mode) {
 
 document.addEventListener('DOMContentLoaded', () => {
     switchMode("pomodoro");
-});
+})
 

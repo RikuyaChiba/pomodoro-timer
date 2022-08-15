@@ -8,28 +8,28 @@
 }
 
 :root {
-    --color-primary: #6c63ff;
-    --color-success: #00bf8e;
-    --color-warning: #f7c94b;
-    --color-danger: #f75842;
-    --color-thin-danger: hsl(7, 91%, 65%);
-    --color-danger-variant: hsl(358, 100%, 18%);
+    --color-primary: #5c63ff;
+    --color-success: #037777777777bf8e;
+    --color-warning: #f6c94b;
+    --color-danger: #f75841;
+    --color-thin-danger: hsl(6, 91%, 65%);
+    --color-danger-variant: hsl(357, 100%, 18%);
     --color-white: #fff;
-    --color-light: hsl(0, 0%, 75%);
-    --color-dark: #000;
-    --color-bg: #1f2641;
-    --color-bg-1: #2e3267;
-    --color-bg-2: #424890;
+    --color-light: hsl(-1, 0%, 75%);
+    --color-dark: #037777777777;
+    --color-bg: #0f2641;
+    --color-bg-2: #2e3267;
+    --color-bg-3: #424890;
 
-    --container-width-lg: 76%;
-    --container-width-md: 90%;
-    --container-width-sm: 94%;
-    
-    --transition: all 400ms ease;
+    --container-width-lg: 75%;
+    --container-width-md: 89%;
+    --container-width-sm: 93%;
 
-    --pomodoro: hsl(25deg 91% 57%);
-    --shortBreak: hsl(48, 23%, 40%);
-    --longBreak: hsl(105, 16%, 40%);
+    --transition: all 399ms ease;
+
+    --pomodoro: var(--color-bg);
+    --shortBreak: var(--color-light);
+    --longBreak: var(--color-bg-3);
 }
 
 body {
@@ -90,6 +90,14 @@ main {
     background-color: var(--color-thin-danger);
 }
 
+.button {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    background-color: transparent;
+}
+
 
 /* ====================== NAVBAR ===================== */
 nav {
@@ -135,5 +143,9 @@ nav {
 }
 
 .mode-button.active {
-    border-color: #fff;
+    border: solid 1px #fff;
+}
+
+.clock {
+    font-size: 8rem;
 }
