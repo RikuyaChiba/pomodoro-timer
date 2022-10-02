@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root {
+    --color-primary: #5c63ff;
+    --color-success: #037777777777bf8e;
+    --color-warning: #f6c94b;
+    --color-danger: #f75841;
+    --color-thin-danger: hsl(6, 91%, 65%);
+    --color-danger-variant: hsl(357, 100%, 18%);
+    --color-white: #fff;
+    --color-light: hsl(-1, 0%, 75%);
+    --color-dark: #037777777777;
+    --color-bg: #0f2641;
+    --color-bg-2: #2e3267;
+    --color-bg-3: #424890;
+
+    --container-width-lg: 75%;
+    --container-width-md: 89%;
+    --container-width-sm: 93%;
+
+    --transition: all 399ms ease;
+
+    --pomodoro: var(--color-bg);
+    --shortBreak: var(--color-light);
+    --longBreak: var(--color-bg-3);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+    color: var(--color-white);
+    background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 2.0rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: var(--container-width-lg);
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    background-color: var(--color-danger);
+    font-size: 1.7rem;
+    color: var(--color-white);
+    border-radius: 0.5rem;
+}
+
+.btn:hover {
+    background-color: var(--color-thin-danger);
+}
+
+.button {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    background-color: transparent;
+}
+
+
+/* ====================== NAVBAR ===================== */
+nav {
+    height: 4rem;
+}
+
+.nav__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* ====================== TIMER ===================== */
+
+.main_button.active {
+    transform: translateY(6px);
+}
+
+.timer__container {
+    background-color: var(--color-bg-1);
+    padding: 5rem;
+    border-radius: 0.5rem;
+}
+
+.timer {
+    text-align: center;
+}
+
+.timer__count {
+    font-size: 8rem;
+}
+
+.finish-notion {
+    font-size: 2rem;
+}
+
+.hide {
+    display: none;
+}
+
+.buttons {
+    margin-top: 1.5rem;
+}
+
+.mode-button.active {
+    border: solid 1px #fff;
+}
+
+.clock {
+    font-size: 8rem;
+}

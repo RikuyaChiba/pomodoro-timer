@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Pomodoro Timer</title>
+</head>
+
+<body>
+    <nav>
+        <div class="container nav__container">
+            <h4>Pomodoro Timer</h4>
+        </div>
+    </nav>
+    <!-- ===================== END OF NAVBAR =========================  -->
+    <main>
+        <div class="container timer__container">
+            <div class="timer">
+                <div class="button-groups mode-buttons" id="js-mode-buttons">
+                    <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">
+                        Pomodoro
+                    </button>
+                    <button data-mode="shortBreak" class="button mode-button" id="js-pomodoro">
+                        Short Break
+                    </button>
+                    <button data-mode="longBreak" class="button mode-button" id="js-pomodoro">
+                        Long Break
+                    </button>
+                </div>
+                <div class="clock" id="js-clock">
+                    <span id="js-minutes">25</span>
+                    <span class="separator">:</span>
+                    <span id="js-seconds">00</span>
+                </div>
+                <div>
+                    <button id="main-button" class="main-button btn" data-action="start">
+                        Start
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <!-- ===================== END OF MAIN  =========================  -->
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
