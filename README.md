@@ -8,7 +8,7 @@ https://pomodoro-timer-361712.an.r.appspot.com/
 ![スクリーンショット 2022-08-16 0 09 59](https://user-images.githubusercontent.com/107483623/184663761-d9637562-924d-412a-875a-6a0753507808.png)
 
 ## What is pomodoro
-Pomodoro is the time management technique to focus work, study etc.. It uses a kitchen timer to break work into intervals, typically 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro,
+Pomodoro is the time management technique to focus work, study etc.. It uses a timer to break work into intervals, typically 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro,
 
 ## Usage 
 
